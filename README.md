@@ -1,5 +1,6 @@
 # nomadcoder-youtube-clone-nodejs
-A clone coding project available at nomadcoders.co
+An educational clone coding project available available at nomadcoders.co
+THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wetube/commits?author=serranoarevalo)
 
 ## Study Notes
 
@@ -55,7 +56,9 @@ A clone coding project available at nomadcoders.co
 - listening is the last thing to do!
 #### Routing: Directing users to other pages
 - GETting a page: `app.get(ROUTE, CALLBACKFUNC)`
-- POSTing a page:
+- POSTing a page: `app.post(ROUTE, CALLBACKFUNC)`
+- Signal status: `res.status(STATUSNUM)`
+- forcefull navigation: `res.redirect()`
 - POST does not reveal the input (Joining, Log in must be in POST method for security) 
 - making a grouped router: `app.use(ROUTE, express.Router())`
 - Middlewares: Functions between the router and the callbackfunc (Need `next()` to move on)

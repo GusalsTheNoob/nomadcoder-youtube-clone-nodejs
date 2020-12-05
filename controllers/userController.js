@@ -22,6 +22,7 @@ export const postJoin = (req, res) => {
 export const getLogin = (req, res) =>
   res.render("login", { pageTitle: "Log In" });
 export const postLogin = (req, res) => {
+    // To Do: Process Log Out
   res.redirect(routes.home);
 };
 export const logout = (req, res) => res.render("logout");
