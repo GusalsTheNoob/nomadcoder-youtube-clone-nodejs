@@ -24,11 +24,15 @@ A clone coding project available at nomadcoders.co
 ### PUG: Truncated HTML View Engine
 - `npm install pug`
 - `app.set("view engine", "pug")`
+- Inserting JS Script result: `#{}`
 #### extension and blocks
 - `extends ~` means this page adopts the template in the given path
 - `block ~` in template means this is the blank where each page has different contents
 - `block ~` in pageview means this is the content that will fit in the blank
 - template is usually stored inside `views/layouts/`
+#### inclusion and partials
+- `include ~` means this template adopts the partial template in the given path
+-  partial template is usually stored inside `views/partials/`
 
 ### ExpressJS: The NodeJS Framework controlling web app server\
 #### Basics
@@ -53,3 +57,4 @@ A clone coding project available at nomadcoders.co
   - @ controllers/*.js: Specific controllers(functions) are configured (Controller)
 #### View Control:
   - `res.render(FILENAME)`: All PUG files are stored inside `views` directory
+  - 
