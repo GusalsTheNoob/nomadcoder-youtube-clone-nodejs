@@ -35,9 +35,14 @@ A clone coding project available at nomadcoders.co
 - `block ~` in template means this is the blank where each page has different contents
 - `block ~` in pageview means this is the content that will fit in the blank
 - template is usually stored inside `views/layouts/`
-#### inclusion and partials
+#### inclusion and static partials
 - `include ~` means this template adopts the partial template in the given path
 -  partial template is usually stored inside `views/partials/`
+#### inclusion and dynamic mixins
+- `include ~` means this template adopts the dynamic partial template in the given path
+- Specific insertion location is marked with `+`
+- `mixin` keyword declares the following blocks constitute a mixin template
+- mixins are usally stored inside `view/mixins/`
 
 ### ExpressJS: The NodeJS Framework controlling web app server\
 #### Basics
