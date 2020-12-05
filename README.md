@@ -60,6 +60,7 @@ A clone coding project available at nomadcoders.co
   - @ controllers/*.js: Specific controllers(functions) are configured (Controller)
 #### View Control:
   - `res.render(FILENAME)`: All PUG files are stored inside `views` directory
-  - To pass local variable into the view, middleware is required.
+  - To pass global variable into the view, middleware is required.
     - `res.locals` is a kind of object for PUG view references.
     - Add `localsMiddleware` at the end of the middleware queue in `app.js`
+  - To pass local variable into the view, `res.render()` can pass them.
