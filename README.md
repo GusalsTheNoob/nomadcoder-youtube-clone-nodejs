@@ -64,7 +64,7 @@ A clone coding project available at nomadcoders.co
   - Representative middlewares: `morgan`(Logging), `helmet`(Basic Securities), `cookieParser`(Cookie Handling), `bodyParser`(Form Handling)
 - Basic Structure(Seperation):
   - @ app.js: `app.use` to register routers
-  - @ routes.js: Store raw values and convert it to `routes` object (Data)
+  - @ routes.js: Store raw values and convert it to `routes` object (Data) [Routes can include function if the route is f-string-like]
   - @ routers/*.js: Specific routers (`express.Router`) are configured (Router)
   - @ controllers/*.js: Specific controllers(functions) are configured (Controller)
 #### View Control:
