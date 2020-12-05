@@ -37,4 +37,7 @@ A clone coding project available at nomadcoders.co
   - Global Deployment: `app.use()`
   - Local Deployment: Inside `app.get()`
   - Representative middlewares: `morgan`(Logging), `helmet`(Basic Securities), `cookieParser`(Cookie Handling), `bodyParser`(Form Handling)
-
+- Basic Structure:
+  - @ app.js: `app.use` to make routers
+  - @ routes.js: Store raw values and convert it to `routes` object
+  - @ routers/*.js: Specific routers (`express.Router`) are configurated
