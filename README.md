@@ -11,7 +11,7 @@ A clone coding project available at nomadcoders.co
 
 ### Nodemon: Automation of Debugging Environment
 - `npm install nodemon -D`
-- `start` script becomes `nodemon --exec ...`
+- `start` script becomes `nodemon --exec ... --delay 2`
 
 ### Babel: Translator of ES6 code to standard codes
 - `npm install @babel/node`
@@ -30,3 +30,7 @@ A clone coding project available at nomadcoders.co
 - listening is the last thing to do!
 #### Routing: Directing users to other pages
 - GETting a page: `app.get(ROUTE, CALLBACKFUNC)`
+- Middlewares: Functions between the router and the callbackfunc
+  - Global Deployment: `app.use()`
+  - Local Deployment: Inside `app.get()`
+
