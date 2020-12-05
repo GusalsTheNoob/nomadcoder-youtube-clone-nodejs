@@ -27,8 +27,9 @@ A clone coding project available at nomadcoders.co
 - tag: without any additional punctuations
 - class: `.CLASSNAME`, Chaining allowed
 - other tag properties: inside `(PROPERTY=VALUE)`
-- content: `| ~`
+- content: `| ~` or `TAGNAME=JSSCRIPT`
 - Inserting JS Script result: `#{}`, inside property value
+- Loop: `each VARNAME in ITERABLE`
 #### extension and blocks
 - `extends ~` means this page adopts the template in the given path
 - `block ~` in template means this is the blank where each page has different contents
