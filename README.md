@@ -64,3 +64,4 @@ A clone coding project available at nomadcoders.co
     - `res.locals` is a kind of object for PUG view references.
     - Add `localsMiddleware` at the end of the middleware queue in `app.js`
   - To pass local variable into the view, `res.render()` can pass them.
+    - ES6 expression: `const {PROPERTYNAME: var1} = OBJECTNAME` designates the value of the property to var1 
