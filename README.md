@@ -23,6 +23,10 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - concise arrow function expression, import expression, etc.
 
 ### dotenv: NodeJS module for environmental variable management
+- `npm install dotenv`
+- `dotenv.config();`
+- `process.env.VARNAME`
+- MAKE SURE THAT .ENV FILE IS GITIGNORED
 
 ### PUG: Truncated HTML View Engine
 - `npm install pug`
