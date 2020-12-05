@@ -22,6 +22,8 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - requires `start` script to be `babel-node index.js`
 - concise arrow function expression, import expression, etc.
 
+### dotenv: NodeJS module for environmental variable management
+
 ### PUG: Truncated HTML View Engine
 - `npm install pug`
 - `app.set("view engine", "pug")`
@@ -45,7 +47,7 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - `mixin` keyword declares the following blocks constitute a mixin template
 - mixins are usally stored inside `view/mixins/`
 
-### ExpressJS: The NodeJS Framework controlling web app server\
+### ExpressJS: The NodeJS Framework controlling web app server
 #### Basics
 - `npm install express`
 - import & export:
@@ -77,3 +79,9 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
     - Add `localsMiddleware` at the end of the middleware queue in `app.js`
   - To pass local variable into the view, `res.render()` can pass them.
     - ES6 expression: `const {PROPERTYNAME: var1} = OBJECTNAME` designates the value of the property to var1 
+
+### Mongoose: NodeJS package for interaction with DB based on MongoDB
+#### Initial connection
+- `npm install mongoose`
+- Port num must match with what you get from terninal command `mongod`
+- Code for connecting to DB is almost standard, refer to `db.js`
