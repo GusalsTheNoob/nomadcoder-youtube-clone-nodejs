@@ -24,7 +24,10 @@ A clone coding project available at nomadcoders.co
 ### PUG: Truncated HTML View Engine
 - `npm install pug`
 - `app.set("view engine", "pug")`
-- Inserting JS Script result: `#{}`
+- tag: without any additional punctuations
+- class: `.CLASSNAME`, Chaining allowed
+- other tag properties: inside `(PROPERTY=VALUE)`
+- Inserting JS Script result: `#{}`, inside property value
 #### extension and blocks
 - `extends ~` means this page adopts the template in the given path
 - `block ~` in template means this is the blank where each page has different contents
@@ -57,4 +60,6 @@ A clone coding project available at nomadcoders.co
   - @ controllers/*.js: Specific controllers(functions) are configured (Controller)
 #### View Control:
   - `res.render(FILENAME)`: All PUG files are stored inside `views` directory
-  - 
+  - To pass local variable into the view, middleware is required.
+    - `res.locals` is a kind of object for PUG view references.
+    - Add `localsMiddleware` at the end of the middleware queue in `app.js`
