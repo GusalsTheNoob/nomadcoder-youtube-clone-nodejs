@@ -15,3 +15,6 @@ A clone coding project available at nomadcoders.co
 - import: `const express = require("express");`
 - creating an app: `const app = express();`
 - designating a port: `app.listen(PORTNUM, CALLBACKFUNC);`
+- listening is the last thing to do!
+#### Routing: Directing users to other pages
+- GETting a page: `app.get(ROUTE, CALLBACKFUNC)`
