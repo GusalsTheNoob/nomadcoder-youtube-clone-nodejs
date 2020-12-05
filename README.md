@@ -30,7 +30,8 @@ A clone coding project available at nomadcoders.co
 - listening is the last thing to do!
 #### Routing: Directing users to other pages
 - GETting a page: `app.get(ROUTE, CALLBACKFUNC)`
-- Middlewares: Functions between the router and the callbackfunc
+- Middlewares: Functions between the router and the callbackfunc (Need `next()` to move on)
   - Global Deployment: `app.use()`
   - Local Deployment: Inside `app.get()`
+  - Representative middlewares: `morgan`(Logging), `helmet`(Basic Securities), `cookieParser`(Cookie Handling), `bodyParser`(Form Handling)
 
