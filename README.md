@@ -7,6 +7,11 @@ A clone coding project available at nomadcoders.co
 - `npm init`: make a new project and create `package.json`
 - `package.json` is a light-weighted method of exchaing dependency infos
 - make sure `node_modules` and `package.json` is `gitignore`d.
+- `scripts` of `package.json` concisely manage frequently used scripts. (ex: `start`: `node index.js`)
 
-### ExpressJS: The NodeJS Framework controlling web app server
+### ExpressJS: The NodeJS Framework controlling web app server\
+#### Basics
 - `npm install express`
+- import: `const express = require("express");`
+- creating an app: `const app = express();`
+- designating a port: `app.listen(PORTNUM, CALLBACKFUNC);`
