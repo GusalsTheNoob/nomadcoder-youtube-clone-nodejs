@@ -27,6 +27,7 @@ A clone coding project available at nomadcoders.co
 - tag: without any additional punctuations
 - class: `.CLASSNAME`, Chaining allowed
 - other tag properties: inside `(PROPERTY=VALUE)`
+- content: `| ~`
 - Inserting JS Script result: `#{}`, inside property value
 #### extension and blocks
 - `extends ~` means this page adopts the template in the given path
@@ -48,6 +49,7 @@ A clone coding project available at nomadcoders.co
 - listening is the last thing to do!
 #### Routing: Directing users to other pages
 - GETting a page: `app.get(ROUTE, CALLBACKFUNC)`
+- POSTing a page: 
 - making a grouped router: `app.use(ROUTE, express.Router())`
 - Middlewares: Functions between the router and the callbackfunc (Need `next()` to move on)
   - Global Deployment: `app.use()`
