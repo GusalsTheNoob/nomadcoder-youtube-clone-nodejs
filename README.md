@@ -49,7 +49,8 @@ A clone coding project available at nomadcoders.co
 - listening is the last thing to do!
 #### Routing: Directing users to other pages
 - GETting a page: `app.get(ROUTE, CALLBACKFUNC)`
-- POSTing a page: 
+- POSTing a page:
+- POST does not reveal the input (Joining, Log in must be in POST method for security) 
 - making a grouped router: `app.use(ROUTE, express.Router())`
 - Middlewares: Functions between the router and the callbackfunc (Need `next()` to move on)
   - Global Deployment: `app.use()`
