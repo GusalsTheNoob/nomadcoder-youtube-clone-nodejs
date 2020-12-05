@@ -21,6 +21,10 @@ A clone coding project available at nomadcoders.co
 - requires `start` script to be `babel-node index.js`
 - concise arrow function expression, import expression, etc.
 
+### PUG: Truncated HTML View Engine
+- `npm install pug`
+- `app.set("view engine", "pug")`
+
 ### ExpressJS: The NodeJS Framework controlling web app server\
 #### Basics
 - `npm install express`
@@ -41,4 +45,6 @@ A clone coding project available at nomadcoders.co
   - @ app.js: `app.use` to register routers
   - @ routes.js: Store raw values and convert it to `routes` object (Data)
   - @ routers/*.js: Specific routers (`express.Router`) are configured (Router)
-  - @ controllers/*.js: Specific controllers(functions) are configured (Contoller)
+  - @ controllers/*.js: Specific controllers(functions) are configured (Controller)
+#### View Control:
+  - `res.render(FILENAME)`: All PUG files are stored inside `views` directory
