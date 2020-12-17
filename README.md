@@ -90,6 +90,8 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - @ file uploading form field, include `enctype="multipart/form-data"` since Multer-supported form needs different type of encoding
 - @ middlewares.js, create `multer({dest:FILEDEST}).single(FIELDNAME)`
 - Multer-encoded file info is available with `req.file`
+- @ app.js, a router for encoded files must be put with `app.use(ROUTE, express.static(DIRECTORYNAME))`
+- Uploading user created files into a server is a bad practice: Cloud Storage will be deployed in real services
   
 ### Mongoose: NodeJS package for interaction with DB based on MongoDB
 #### Initial connection
@@ -112,6 +114,6 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - Functions with DB interactions must be `await`ed. Thus, the enveloping function must be an `async` function
 - It is a good practice to detect unexpected errors as sensitively as possible -- exception for DB interaction is recommended
 ##### Data Retrieval
-- `MODEL.find({})`
+- `await MODEL.find({CONDITIONS})`
 ##### Data Creation
-- `MODEL.create({})`
+- `await MODEL.create({VALUES})`
