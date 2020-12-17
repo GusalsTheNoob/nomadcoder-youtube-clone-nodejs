@@ -89,3 +89,13 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - `npm install mongoose`
 - Port num must match with what you get from terninal command `mongod`
 - Code for connecting to DB is almost standard, refer to `db.js`
+#### Model construction
+- @ models/*.js: Schema defined and exported
+- `mongoose.model(NAME, SCHEMA)` returns a functional model
+- `mongoose.Schema()` gets an object clarifying constituting attributes
+  - `type` is mandatory
+  - `required` gets an error message to show when no data is given to this field
+  - `default` stores default value
+  - `[]` signifies a list of object will be given
+  - Relational database is created with `type: mongoose.Schema.Types.ObjectId` and `ref: MODELNAME`
+- Export(default) the model for use
