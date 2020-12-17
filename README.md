@@ -98,4 +98,4 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
   - `default` stores default value
   - `[]` signifies a list of object will be given
   - Relational database is created with `type: mongoose.Schema.Types.ObjectId` and `ref: MODELNAME`
-- Export(default) the model for use
+- Export(default) the model for use, import it @ db.js (DB initialization code)
