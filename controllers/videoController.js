@@ -42,13 +42,39 @@ export const videoDetail = async (req, res) =>{
     const video = await Video.findById(id);
     res.render("videoDetail", { pageTitle: "Video Detail", video });
   } catch (error) {
-    console.log(`Caught an error in videoDetail controller @videoController`);
+    console.log(`Caught an error in videoDetail controller @videoController.js`);
     console.log(error);
     res.redirect(routes.home);
   }
 };
-  
-export const editVideo = (req, res) =>
-  res.render("editVideo", { pageTitle: "Edit Video" });
+
+export const getEditVideo = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
+  } catch (error) {
+    console.log("Caught an error in getEditVideo controller @videoController.js");
+    console.log(error);
+    res.redirect(routes.home);
+  }
+};
+export const postEditVideo = async (req, res) => {
+  const {
+    params: { id },
+    body: { title, description }
+  } = req;
+  try {
+    await Video.findOneAndUpdate({ id }, { title, description });
+    res.redirect(routes.videoDetail(id));
+  } catch (error) {
+    console.log("Caught an error in postEditVideo controller @videoController.js");
+    console.log(error);
+    res.redirect(routes.home);
+  }
+};
+
 export const deleteVideo = (req, res) =>
   res.render("deleteVideo", { pageTitle: "Delete Video" });

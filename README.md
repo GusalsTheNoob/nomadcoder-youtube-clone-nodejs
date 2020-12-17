@@ -72,6 +72,7 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
   - Local Deployment: Inside `app.get()`
   - Representative middlewares: `morgan`(Logging), `helmet`(Basic Securities), `cookieParser`(Cookie Handling), `bodyParser`(Form Handling), `multer`(file URL returner: explained more)
 - URL can pass variables with `:` signature: The params will be passed into `req.params` as an object
+  - Generally, the corresponding route must be in a function if it has a param
 - Basic Structure(Seperation):
   - @ app.js: `app.use` to register routers
   - @ routes.js: Store raw values and convert it to `routes` object (Data) [Routes can include function if the route is f-string-like]
@@ -117,6 +118,7 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 ##### Data Retrieval
 - `await MODEL.find({CONDITIONS})`
 - `await Model.findById(ID:String)`
-- Data retrieval is recommended to be with exception control
 ##### Data Creation
 - `await MODEL.create({VALUES})`
+##### Data Update
+- `await MODEL.findOneAndUpdate(CONDOBJ, CONTENTOBJ)`
