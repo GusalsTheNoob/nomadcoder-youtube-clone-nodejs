@@ -99,3 +99,7 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
   - `[]` signifies a list of object will be given
   - Relational database is created with `type: mongoose.Schema.Types.ObjectId` and `ref: MODELNAME`
 - Export(default) the model for use, import it @ db.js (DB initialization code)
+#### Model usage
+- @ controllers/*.js: Import the model with the namestring
+- Data Receival Function must be `await`ed. Thus, the enveloping function must be an `async` function
+- It is a good practice to detect unexpected errors as sensitively as possible -- exception for DB interaction is recommended
