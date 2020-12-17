@@ -111,14 +111,18 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
   - Relational database is created with `type: mongoose.Schema.Types.ObjectId` and `ref: MODELNAME`
 - Export(default) the model for use, import it @ db.js (DB initialization code)
 - An instance's id is auto-created: available with `id` attribute
-#### Model usage
+#### Model usage (CRUD operation)
 - @ controllers/*.js: Import the model with the namestring
 - Functions with DB interactions must be `await`ed. Thus, the enveloping function must be an `async` function
 - It is a good practice to detect unexpected errors as sensitively as possible -- exception for DB interaction is recommended
 ##### Data Retrieval
 - `await MODEL.find({CONDITIONS})`
-- `await Model.findById(ID:String)`
+- `await MODEL.findById(ID:String)`
+- sort method: `.sort({:-1})` (`-1` means descending)
 ##### Data Creation
 - `await MODEL.create({VALUES})`
+- Every instance is automatically assigned an object id in `_id` field
 ##### Data Update
 - `await MODEL.findOneAndUpdate(CONDOBJ, CONTENTOBJ)`
+##### Data Deletion
+- `await MODEL.findOneAndRemove({CONDITIONS})`

@@ -1,48 +1,47 @@
-import { videos } from "../db";
-import Video from "../models/Video";
-import routes from "../routes";
+import { videos } from '../db';
+import Video from '../models/Video';
+import routes from '../routes';
 
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({});
-    res.render("home", {pageTitle: "Home", videos});
+    const videos = await Video.find({}).sort({ _id: -1 });
+    res.render('home', { pageTitle: 'Home', videos });
   } catch (error) {
     console.log(error);
-    res.render("home", {pageTitle: "Home", videos: []});
+    res.render('home', { pageTitle: 'Home', videos: [] });
   }
-}
-
-export const search = (req, res) => {
-    const {
-        query: {term: searchingBy}
-    } = req;
-    res.render("search", {pageTitle: "Search", searchingBy, videos})
 };
 
-export const getUpload = (req, res) =>
-  res.render("upload", { pageTitle: "Upload" });
+export const search = (req, res) => {
+  const {
+    query: { term: searchingBy },
+  } = req;
+  res.render('search', { pageTitle: 'Search', searchingBy, videos });
+};
+
+export const getUpload = (req, res) => res.render('upload', { pageTitle: 'Upload' });
 export const postUpload = async (req, res) => {
   const {
     file: { path },
-    body: { title, description }
+    body: { title, description },
   } = req;
   const newVideo = await Video.create({
     fileUrl: path,
     title,
-    description
+    description,
   });
   res.redirect(routes.videoDetail(newVideo.id));
 };
 
-export const videoDetail = async (req, res) =>{
+export const videoDetail = async (req, res) => {
   const {
-    params: { id }
+    params: { id },
   } = req;
   try {
     const video = await Video.findById(id);
-    res.render("videoDetail", { pageTitle: "Video Detail", video });
+    res.render('videoDetail', { pageTitle: video.title, video });
   } catch (error) {
-    console.log(`Caught an error in videoDetail controller @videoController.js`);
+    console.log('Caught an error in videoDetail controller @videoController.js');
     console.log(error);
     res.redirect(routes.home);
   }
@@ -50,13 +49,13 @@ export const videoDetail = async (req, res) =>{
 
 export const getEditVideo = async (req, res) => {
   const {
-    params: { id }
+    params: { id },
   } = req;
   try {
     const video = await Video.findById(id);
-    res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
+    res.render('editVideo', { pageTitle: `Edit ${video.title}`, video });
   } catch (error) {
-    console.log("Caught an error in getEditVideo controller @videoController.js");
+    console.log('Caught an error in getEditVideo controller @videoController.js');
     console.log(error);
     res.redirect(routes.home);
   }
@@ -64,17 +63,27 @@ export const getEditVideo = async (req, res) => {
 export const postEditVideo = async (req, res) => {
   const {
     params: { id },
-    body: { title, description }
+    body: { title, description },
   } = req;
   try {
-    await Video.findOneAndUpdate({ id }, { title, description });
+    await Video.findOneAndUpdate({ _id: id }, { title, description });
     res.redirect(routes.videoDetail(id));
   } catch (error) {
-    console.log("Caught an error in postEditVideo controller @videoController.js");
+    console.log('Caught an error in postEditVideo controller @videoController.js');
     console.log(error);
     res.redirect(routes.home);
   }
 };
 
-export const deleteVideo = (req, res) =>
-  res.render("deleteVideo", { pageTitle: "Delete Video" });
+export const deleteVideo = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    await Video.findOneAndRemove({ _id: id });
+  } catch (error) {
+    console.log('Caught an error in deleteVideo controller @videoController.js');
+    console.log(error);
+  }
+  res.redirect(routes.home);
+};
