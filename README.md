@@ -70,7 +70,7 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - Middlewares: Functions between the router and the callbackfunc (Need `next()` to move on)
   - Global Deployment: `app.use()`
   - Local Deployment: Inside `app.get()`
-  - Representative middlewares: `morgan`(Logging), `helmet`(Basic Securities), `cookieParser`(Cookie Handling), `bodyParser`(Form Handling)
+  - Representative middlewares: `morgan`(Logging), `helmet`(Basic Securities), `cookieParser`(Cookie Handling), `bodyParser`(Form Handling), `multer`(file URL returner: explained more)
 - Basic Structure(Seperation):
   - @ app.js: `app.use` to register routers
   - @ routes.js: Store raw values and convert it to `routes` object (Data) [Routes can include function if the route is f-string-like]
@@ -84,6 +84,13 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
   - To pass local variable into the view, `res.render()` can pass them.
     - ES6 expression: `const {PROPERTYNAME: var1} = OBJECTNAME` designates the value of the property to var1 
 
+### Multer: A Middleware encoding a file to a URL
+- Getting the file itself instead of the file location must be avoided for security
+- Multer is a good solution for lightening this practice
+- @ file uploading form field, include `enctype="multipart/form-data"` since Multer-supported form needs different type of encoding
+- @ middlewares.js, create `multer({dest:FILEDEST}).single(FIELDNAME)`
+- Multer-encoded file info is available with `req.file`
+  
 ### Mongoose: NodeJS package for interaction with DB based on MongoDB
 #### Initial connection
 - `npm install mongoose`
@@ -99,7 +106,12 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
   - `[]` signifies a list of object will be given
   - Relational database is created with `type: mongoose.Schema.Types.ObjectId` and `ref: MODELNAME`
 - Export(default) the model for use, import it @ db.js (DB initialization code)
+- An instance's id is auto-created: available with `id` attribute
 #### Model usage
 - @ controllers/*.js: Import the model with the namestring
-- Data Receival Function must be `await`ed. Thus, the enveloping function must be an `async` function
+- Functions with DB interactions must be `await`ed. Thus, the enveloping function must be an `async` function
 - It is a good practice to detect unexpected errors as sensitively as possible -- exception for DB interaction is recommended
+##### Data Retrieval
+- `MODEL.find({})`
+##### Data Creation
+- `MODEL.create({})`

@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
     });
 
 app.use(routes.home, globalRouter);
-app.use(routes.join, videoRouter);
-app.use(routes.videos, userRouter);
+app.use(routes.videos, videoRouter);
+app.use(routes.users, userRouter);
 
 export default app;
