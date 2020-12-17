@@ -22,6 +22,12 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - requires `start` script to be `babel-node index.js`
 - concise arrow function expression, import expression, etc.
 
+### eslint: formatter
+- `npm install -D eslint`
+- `npx eslint --init`
+- @ .eslintrc.js: `extends: ['plugin:prettier/recommended']`
+- `npm install eslint-plugin-prettier`
+
 ### dotenv: NodeJS module for environmental variable management
 - `npm install dotenv`
 - `dotenv.config();`
@@ -119,6 +125,7 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - `await MODEL.find({CONDITIONS})`
 - `await MODEL.findById(ID:String)`
 - sort method: `.sort({:-1})` (`-1` means descending)
+- basic searching: `{ $regex: TERM, $options: "i"}` `i` means case Insensitive
 ##### Data Creation
 - `await MODEL.create({VALUES})`
 - Every instance is automatically assigned an object id in `_id` field
