@@ -160,3 +160,11 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 #### Implementation
 - Just like in the case of Multer, a static route must be defined using `app.use()`
 - When developing, two ternimals are working, one with `dev:server` and the other with `dev:assets` (with `-w` option on)
+
+### SCSS: A more logical CSS
+- File Structure
+  - config: variables and resetting codes
+  - pages, partials, mixins
+  - All files are imported into one entry point (`styles.scss`)
+- Variables: store using `$VARNAME: VALUE;` & call using `$VARNAME`
+  - Remember to import earlier than variable-containing 
