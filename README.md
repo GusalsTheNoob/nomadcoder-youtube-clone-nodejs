@@ -167,4 +167,15 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
   - pages, partials, mixins
   - All files are imported into one entry point (`styles.scss`)
 - Variables: store using `$VARNAME: VALUE;` & call using `$VARNAME`
-  - Remember to import earlier than variable-containing 
+  - Remember to import earlier than variable-containing CSS code
+- Inclusion Logic: `&` is used to refer to the parent selector
+
+### Passport: middleware for authenticating users with cookie
+- `npm install passport-local-mongoose`
+- `npm install passport passport-local`: for local login
+- Implement the middleware with the DB schema: `SCHEMA.plugin(passportLocalMongoose, { usernameField: FIELDNAME })`
+- @ passport.js, basic implementation orders are written:
+  - `passport.use(MODEL.createStrategy())`: use default login-out functions
+  - `passport.serializeUser(User.serializeUser())`: user id is the only content of user-recognizing id in cookies
+  - `passport.deserializeUser(User.deserializeUser())`: the same as above
+- Joining function is specified in controllers: use `MODEL.register(USEROBJECT, PASSWORD)` for safe registeration (Make sure not to create the object with `MODEL.create` because it deos not return the created object!)
