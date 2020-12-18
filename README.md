@@ -133,3 +133,30 @@ THIS CODE IS A MERE CLONE OF @serranoarevalo (https://github.com/nomadcoders/wet
 - `await MODEL.findOneAndUpdate(CONDOBJ, CONTENTOBJ)`
 ##### Data Deletion
 - `await MODEL.findOneAndRemove({CONDITIONS})`
+
+### Webpack: JS packager
+- Webpack is a 'bundler': It bundles static files into all-in-one package, shortening loading latency
+- Webpack configurations are saved @ webpack.config.js
+#### Installation
+- `npm install webpack webpack-cli`: basic webpack utilities
+- `cross-env`: needed to pass script param to webpack
+- For easy & automatic trial, script @ package.json is updated -- `"dev:assets": "cross-env WEBPACK_ENV=development webpack -w"`
+- @ webpack.config.js, we need to configure basic behavior of webpack
+  - ENTRY_FILE: Where Webpack will start to draw dependency tree. Paths are specified with `path.resolve()`
+  - OUTPUT: filename and path. Paths are specified with `path.join()`
+  - MODE: `development` or `production`? The latter supports compression
+#### Configurations
+- Specification of module for each file format is necessary
+  - `rules` is a list of rule object
+  - A rule object specifies its scope with `test` property. Regex is used.
+  - A rule specifies its task with `use` property. It is a list of loader objects.
+    - Loader is applied to the input file in reverse order
+- `npm install sass-loader`: loads and interprets scss files into css files
+- `npm install postcss-loader`: supports many powerful automation of css styling
+- `npm install autoprefixer`: one of the most powerful utilites postcss-loader provides (Automatically converting plain css to browser-robust css)
+- `npm install css-loader`: loads and resolves in-css dependencies
+- `npm install mini-css-extract-plugin`: loads css and make it divided one file per js file
+- `npm install babel-loader`: a babel utility(ES6 translator) for webpack
+#### Implementation
+- Just like in the case of Multer, a static route must be defined using `app.use()`
+- When developing, two ternimals are working, one with `dev:server` and the other with `dev:assets` (with `-w` option on)
